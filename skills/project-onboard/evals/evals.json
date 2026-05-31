@@ -1,0 +1,54 @@
+{
+  "skill_name": "project-onboard",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我系统化理解这个项目",
+      "should_trigger": true,
+      "expected_output": "执行三阶段九步骤流程，产出docs/spec/spec.md/design.md/tasks.md",
+      "files": [],
+      "expectations": [
+        "输出包含鸟瞰全局结果",
+        "输出包含深度探索结果",
+        "生成docs/spec/spec.md覆盖功能清单和业务规则",
+        "生成docs/spec/design.md覆盖架构模式和技术选型",
+        "生成docs/spec/tasks.md覆盖已完成和待办任务"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "项目缺文档，帮我补全spec和design",
+      "should_trigger": true,
+      "expected_output": "逆向梳理现有代码，产出docs/spec/spec.md和design.md",
+      "files": [],
+      "expectations": [
+        "docs/spec/spec.md包含功能清单、业务规则、用户场景、约束条件",
+        "docs/spec/design.md包含架构模式、目录结构、技术选型、数据流、部署方式"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "功能开发完了，更新文档",
+      "should_trigger": true,
+      "expected_output": "按加功能场景更新docs/spec/spec.md+design.md+tasks.md+README",
+      "files": [],
+      "expectations": [
+        "docs/spec/spec.md补充新功能说明",
+        "docs/spec/design.md补充新模块设计",
+        "docs/spec/tasks.md标记任务完成"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "发版前检查文档一致性",
+      "should_trigger": true,
+      "expected_output": "全量对齐检查，列出不一致项",
+      "files": [],
+      "expectations": [
+        "检查spec与实际功能对齐",
+        "检查design与实际架构对齐",
+        "检查tasks与实际进度对齐"
+      ]
+    }
+  ]
+}
