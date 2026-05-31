@@ -17,7 +17,7 @@
 | ID | 功能 | 说明 | 状态 |
 |----|------|------|------|
 | A1 | 技能变更记录 | 每个技能通过 CHANGELOG.md 记录版本变更 | done |
-| A2 | 技能测试 | 每个技能通过 tests/ 目录存放测试配置 | in_progress（conftest.py 引用了不存在的 scripts/，需修复） |
+| A2 | 技能测试 | 每个技能通过 tests/ 目录存放测试配置 | done |
 | A3 | 持久化记忆 | 通过 .joycode/memory/ 跨会话记忆 | pending |
 | A4 | 项目规则 | 通过 .joycode/rules/ 定义项目级规则 | pending |
 
