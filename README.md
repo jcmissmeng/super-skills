@@ -14,8 +14,7 @@ super-skills/
 │       ├── CHANGELOG.md
 │       ├── LICENSE.txt
 │       ├── evals/      # 评估用例
-│       ├── references/ # 参考资源
-│       └── tests/      # 测试
+│       └── references/ # 参考资源
 └── .joycode/           # IDE 持久化层
 ```
 
@@ -38,7 +37,6 @@ super-skills/
 2. 编写 `SKILL.md`（含 YAML frontmatter：name / description / metadata）
 3. 添加 `evals/evals.json` 评估用例
 4. 添加 `references/` 参考资源（可选）
-5. 添加 `tests/` 测试（可选）
 
 ## 许可证
 
