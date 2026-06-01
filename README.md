@@ -7,7 +7,7 @@ Agent 技能集合，用于存放和管理多个 AI Agent 技能模块。
 ```
 super-skills/
 ├── docs/spec/          # SDD 文档（spec.md / design.md / tasks.md）
-├── skills/             # 技能集合
+├── skills/             # 自研技能集合
 │   └── <skill-name>/   # 单个技能
 │       ├── SKILL.md    # 技能核心定义（必须）
 │       ├── README.md   # 技能说明
@@ -15,6 +15,8 @@ super-skills/
 │       ├── LICENSE.txt
 │       ├── evals/      # 评估用例
 │       └── references/ # 参考资源
+├── useful/             # 社区/第三方技能缓存
+│   └── <skill-name>/   # 通过 npx skills add 安装的技能
 └── .joycode/           # IDE 持久化层
 ```
 

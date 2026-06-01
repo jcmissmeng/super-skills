@@ -16,18 +16,19 @@ super-skills/                   # 项目根目录
 │       ├── spec.md             # 功能规格
 │       ├── design.md           # 架构设计
 │       └── tasks.md            # 任务清单
-└── skills/                     # 技能集合根目录
-    └── <skill-name>/           # 单个技能（约定目录名 = 技能名）
-        ├── SKILL.md            # 技能核心定义（必须，含 frontmatter）
-        ├── README.md           # 技能说明文档
-        ├── CHANGELOG.md        # 版本变更记录
-        ├── LICENSE.txt         # 许可证
-        ├── evals/              # 评估用例
-        │   └── evals.json      # 评估定义（JSON 格式）
-        ├── references/         # 参考资源
-        │   └── *.md            # 提示词模板等
-        └── tests/              # 测试
-            └── conftest.py     # 测试配置
+├── skills/                     # 自研技能集合根目录
+│   └── <skill-name>/           # 单个技能（约定目录名 = 技能名）
+│       ├── SKILL.md            # 技能核心定义（必须，含 frontmatter）
+│       ├── README.md           # 技能说明文档
+│       ├── CHANGELOG.md        # 版本变更记录
+│       ├── LICENSE.txt         # 许可证
+│       ├── evals/              # 评估用例
+│       │   └── evals.json      # 评估定义（JSON 格式）
+│       └── references/         # 参考资源
+│           └── *.md            # 提示词模板等
+└── useful/                     # 社区/第三方技能缓存（npx skills add 安装）
+    └── <skill-name>/           # 第三方技能
+        └── SKILL.md            # 技能定义
 ```
 
 ## 3. 技术选型
@@ -43,7 +44,7 @@ super-skills/                   # 项目根目录
 
 ```
 用户输入触发词
-    → IDE 扫描 skills/*/SKILL.md 的 frontmatter
+    → IDE 扫描 skills/*/SKILL.md 和 useful/*/SKILL.md 的 frontmatter
     → 匹配 description 中的触发条件
     → 激活技能，加载 SKILL.md 正文指令
     → 按流程执行，产出文件到 docs/spec/
