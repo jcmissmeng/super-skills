@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "skills": {
+    "agent-browser": {
+      "name": "Agent Browser",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=agent-browser",
+      "source": "community",
+      "version": "0.2.0",
+      "installedAt": "2026-05-27T14:19:13Z"
+    },
+    "skill-vetter": {
+      "name": "Skill Vetter",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=skill-vetter",
+      "source": "community",
+      "version": "1.0.0",
+      "installedAt": "2026-05-27T14:21:12Z"
+    },
+    "self-improving-agent": {
+      "name": "self-improving-agent",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=self-improving-agent",
+      "source": "community",
+      "version": "1.0.11",
+      "installedAt": "2026-05-27T14:21:52Z"
+    },
+    "find-skills": {
+      "name": "Find Skills",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=find-skills",
+      "source": "community",
+      "version": "0.1.0",
+      "installedAt": "2026-05-28T01:00:14Z"
+    },
+    "office-hours": {
+      "name": "office-hours",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=office-hours",
+      "source": "community",
+      "version": "1.0.0",
+      "installedAt": "2026-05-28T01:00:24Z"
+    },
+    "superpowers": {
+      "name": "Superpowers Dev Workflow",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=superpowers",
+      "source": "community",
+      "version": "1.0.0",
+      "installedAt": "2026-05-28T01:00:33Z"
+    },
+    "frontend-design": {
+      "name": "Frontend Design",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=frontend-design",
+      "source": "community",
+      "version": "1.0.0",
+      "installedAt": "2026-05-28T01:00:36Z"
+    },
+    "ui-ux-pro-max": {
+      "name": "UI/UX Pro Max",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=ui-ux-pro-max",
+      "source": "community",
+      "version": "0.1.0",
+      "installedAt": "2026-05-28T01:00:42Z"
+    },
+    "playwright-cli-openclaw": {
+      "name": "Playwright CLI Automation",
+      "zip_url": "https://api.skillhub.cn/api/v1/download?slug=playwright-cli-openclaw",
+      "source": "community",
+      "version": "1.0.0",
+      "installedAt": "2026-05-28T01:03:59Z"
+    }
+  }
+}
