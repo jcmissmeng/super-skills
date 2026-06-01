@@ -23,6 +23,7 @@ super-skills/
 | 技能 | 版本 | 说明 |
 |------|------|------|
 | [project-onboard](skills/project-onboard/) | 1.1.0 | 系统化理解已有/半成品项目，逆向产出 spec/design/tasks 文档 |
+| [skill-chain](skills/skill-chain/) | 1.0.0 | 通过指令调用预定义技能链，按场景编排多技能协同执行 |
 
 ## 使用方式
 
@@ -30,6 +31,8 @@ super-skills/
 
 - "梳理项目" / "理解项目" → 激活 project-onboard
 - "补全文档" / "更新文档" → 激活 project-onboard
+- `/chain feature` / "从零开发" → 激活 skill-chain
+- `/chain debug` / "排查Bug" → 激活 skill-chain
 
 ## 添加新技能
 

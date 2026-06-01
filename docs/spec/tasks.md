@@ -23,5 +23,5 @@
 | T7 | 修复 project-onboard 缺失的 .gitignore | skills/project-onboard/.gitignore 存在且内容合理 | P2 | xcopy 遗漏 | 2026-05-31 |
 | T8 | 完善 .joycode/memory 持久化记忆 | 建立用户偏好/项目上下文等记忆文件 | P3 | spec A3 |
 | T9 | 完善 .joycode/rules 项目规则 | 定义代码规范、提交规范等规则文件 | P3 | spec A4 |
-| T10 | 添加更多技能模块 | skills/ 下至少有 2 个技能目录，各有完整结构 | P2 | 项目扩展 |
+| T10 | 添加更多技能模块 | skills/ 下至少有 2 个技能目录，各有完整结构 | P2 | 项目扩展 | 2026-05-31 |
 | T11 | 建立 CI/CD 流水线 | GitHub Actions 配置，自动检查技能结构完整性 | P3 | design 6 |
