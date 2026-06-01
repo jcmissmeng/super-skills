@@ -1,9 +1,9 @@
 # CodeBuddy IDE 技能完整使用手册
 
 > **文档说明**：本文档详细介绍 `skills/` 目录下所有技能的用途、使用方法和触发方式。
-> **更新时间**：2026-05-28
+> **更新时间**：2026-05-31
 > **适用版本**：CodeBuddy CN
-> **技能总数**：11 个技能集（含 mattpocock 下的 28 个子技能）
+> **技能总数**：12 个技能集（含 mattpocock 下的 28 个子技能）
 
 ---
 
@@ -23,18 +23,20 @@
    - 5.2 [mattpocock — Matt Pocock 编码技能集](#52-mattpocock)
 6. [项目理解与文档类](#6-项目理解与文档类)
    - 6.1 [project-onboard — 项目系统化理解与文档维护](#61-project-onboard)
-7. [技能管理类](#7-技能管理类)
-   - 7.1 [find-skills — 技能发现与安装](#71-find-skills)
-   - 7.2 [skill-vetter — 技能安全审查](#72-skill-vetter)
-   - 7.3 [self-improvement — 持续改进代理](#73-self-improvement)
-8. [技能协同使用](#8-技能协同使用)
-9. [常见问题](#9-常见问题)
+7. [技能编排类](#7-技能编排类)
+   - 7.1 [skill-chain — 技能链调用](#71-skill-chain)
+8. [技能管理类](#8-技能管理类)
+   - 8.1 [find-skills — 技能发现与安装](#81-find-skills)
+   - 8.2 [skill-vetter — 技能安全审查](#82-skill-vetter)
+   - 8.3 [self-improvement — 持续改进代理](#83-self-improvement)
+9. [技能协同使用](#9-技能协同使用)
+10. [常见问题](#10-常见问题)
 
 ---
 
 ## 1. 技能分类概览
 
-`skills/` 目录下共 **11 个技能集**，按功能领域分为五大类：
+`skills/` 目录下共 **12 个技能集**，按功能领域分为六大类：
 
 | 类别 | 技能 | 版本 | 核心领域 |
 |:------|:-----|:-----|:---------|
@@ -46,6 +48,7 @@
 | **开发工作流** | superpowers | 1.0.0 | 规范优先 TDD 开发 |
 | | mattpocock | — | 28 个编码子技能 |
 | **项目理解与文档** | project-onboard | 1.0.0 | 项目系统化理解/文档维护 |
+| **技能编排** | skill-chain | 1.0.0 | 技能链调用/多技能协同 |
 | **技能管理** | find-skills | 0.1.0 | 发现与安装技能 |
 | | skill-vetter | 1.0.0 | 技能安全审查 |
 | | self-improvement | 3.0.21 | 持续改进/经验记录 |
@@ -89,6 +92,7 @@ skills/
 │   └── zoom-out/                  → 宏观视角
 ├── 📂 office-hours/               → YC 式产品思维
 ├── 📂 project-onboard/            → 项目系统化理解与文档维护
+├── 📂 skill-chain/                → 技能链调用/多技能协同
 ├── 📂 playwright-cli-openclaw/    → Playwright 自动化
 ├── 📂 self-improving-agent/       → 持续改进代理
 ├── 📂 skill-vetter/               → 技能安全审查
@@ -662,9 +666,69 @@ Bug 排查：
 
 ---
 
-## 7. 技能管理类
+## 7. 技能编排类
 
-### 7.1 find-skills
+### 7.1 skill-chain
+
+**技能名称**：Skill Chain
+**版本**：v1.0.0
+**技能类型**：项目自研技能
+
+#### 用途
+
+通过指令调用预定义的技能链，按场景自动编排多个技能的协同执行顺序。每个技能链定义了从输入到产出的完整协作流程，并内置技能优先级规则：功能相同的技能，优先使用已安装或推荐使用的。
+
+#### 五条技能链
+
+| 指令 | 场景 | 技能链流程 |
+|:------|:-----|:-----------|
+| `/chain feature` | 从零开发新功能 | office-hours → grill-with-docs → superpowers → ui-ux-pro-max → frontend-design → tdd → playwright-cli → review → self-improvement |
+| `/chain install` | 安装新技能 | find-skills → skill-vetter → find-skills |
+| `/chain debug` | Bug 排查修复 | diagnose → zoom-out → self-improvement |
+| `/chain review` | 架构审查 | zoom-out → improve-codebase-architecture → request-refactor-plan |
+| `/chain onboard` | 接手已有项目 | project-onboard → self-improvement |
+
+#### 链修饰符
+
+修饰符可叠加在任何链指令后，改变链的执行风格而非流程步骤：
+
+| 修饰符 | 说明 | 示例 |
+|:--------|:------|:------|
+| `--caveman` | 极简对话模式，减少约 75% token | `/chain feature --caveman` |
+
+#### 技能优先级规则
+
+1. **已安装的技能** > 未安装的技能（检查 skills/ 目录下是否存在对应 SKILL.md）
+2. **推荐使用的技能** > 备选技能（技能链中 `/` 分隔的，左侧为推荐，右侧为备选）
+3. **项目级技能** > 用户级技能
+
+功能等价映射：
+
+| 功能 | 优先使用 | 备选 |
+|:------|:----------|:------|
+| 需求对齐/深度提问 | grill-with-docs | superpowers 中的 brainstorm |
+| 调试/排查 Bug | diagnose | superpowers 中的 debug 流程 |
+| 代码审查 | review | superpowers 中的 review 流程 |
+| 浏览器自动化 | playwright-cli | agent-browser |
+| 前端实现 | frontend-design | ui-ux-pro-max 的实现部分 |
+| 全流程开发 | superpowers | mattpocock 子技能组合 |
+
+#### 触发方式
+
+| 场景 | 示例语句 |
+|:-----|:---------|
+| 开发新功能 | "我要开发商品搜索功能" / `/chain feature` |
+| 安装新技能 | "安装一个 PDF 处理技能" / `/chain install` |
+| 排查 Bug | "支付回调偶尔重复处理" / `/chain debug` |
+| 架构审查 | "检查一下项目架构质量" / `/chain review` |
+| 接手项目 | "帮我理解这个项目" / `/chain onboard` |
+| 多技能协作 | 用户描述了需要多个技能协作的复杂场景 |
+
+---
+
+## 8. 技能管理类
+
+### 8.1 find-skills
 
 **技能名称**：Find Skills
 **版本**：v0.1.0
@@ -713,7 +777,7 @@ npx skills update
 
 ---
 
-### 7.2 skill-vetter
+### 8.2 skill-vetter
 
 **技能名称**：Skill Vetter
 **版本**：v1.0.0
@@ -776,7 +840,7 @@ npx skills update
 
 ---
 
-### 7.3 self-improvement
+### 8.3 self-improvement
 
 **技能名称**：Self-Improving Agent
 **版本**：v3.0.21
@@ -841,9 +905,9 @@ mkdir -p .learnings
 
 ---
 
-## 8. 技能协同使用
+## 9. 技能协同使用
 
-### 8.1 典型协同场景
+### 9.1 典型协同场景
 
 #### 场景 1：从零开发新功能
 
@@ -927,7 +991,7 @@ mkdir -p .learnings
    → 记录项目关键决策和架构特点
 ```
 
-### 8.2 技能选择指南
+### 9.2 技能选择指南
 
 | 你想做什么 | 推荐技能 | 说明 |
 |:-----------|:---------|:-----|
@@ -946,11 +1010,12 @@ mkdir -p .learnings
 | 浏览器自动化 | agent-browser / playwright-cli | 两个工具互补 |
 | 安装新技能 | find-skills → skill-vetter | 先搜索再审查后安装 |
 | 精简对话 | mattpocock:caveman | 减少 75% token |
+| 技能链/多技能协作 | skill-chain | 按场景编排技能链，指令触发 |
 | 记录经验 | self-improvement | 持续改进 |
 
 ---
 
-## 9. 常见问题
+## 10. 常见问题
 
 ### Q1：如何查看当前已安装的技能？
 
@@ -995,7 +1060,7 @@ mkdir -p .learnings
 
 1. **检查技能是否存在**：确认 `skills/` 目录下有对应的 SKILL.md
 2. **使用正确的触发语**：参考各技能的触发方式章节
-3. **明确指定技能**：直接说出技能名，如"用 office-hours 帮我分析这个想法"
+3. **明确指定技能**：直接说出技能名，如"用 office-hours 帮我分析这个想法"或使用链指令 `/chain feature`
 4. **检查 SKILL.md**：确认 `read_when` 或 `description` 中的触发条件
 
 ---
