@@ -17,7 +17,7 @@ super-skills/
 │       └── references/ # 参考资源
 ├── useful/             # 社区/第三方技能缓存
 │   └── <skill-name>/   # 通过 npx skills add 安装的技能
-└── .joycode/           # IDE 持久化层
+└── .joycode/           # IDE 持久化层（已 gitignore）
 ```
 
 ## 已有技能

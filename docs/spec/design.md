@@ -8,7 +8,7 @@
 
 ```
 super-skills/                   # 项目根目录
-├── .joycode/                   # IDE 持久化层
+├── .joycode/                   # IDE 持久化层（已 gitignore）
 │   ├── memory/                 # 跨会话记忆文件
 │   └── rules/                  # 项目级规则
 ├── docs/
